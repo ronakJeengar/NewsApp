@@ -7,9 +7,9 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
-import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+
 
 class NewsAdapter(private val context: Context, private val articles: List<Article>): RecyclerView.Adapter<NewsAdapter.ArticleViewHolder>(){
 
@@ -26,7 +26,7 @@ class NewsAdapter(private val context: Context, private val articles: List<Artic
         holder.newsAuthor.text = article.author
         Glide.with(context).load(article.urlToImage).into(holder.newsImage)
         holder.itemView.setOnClickListener{
-            Toast.makeText(context,article.title, Toast.LENGTH_SHORT).show()
+            //Toast.makeText(context,article.title, Toast.LENGTH_SHORT).show()
             val intent = Intent(context, DetailWebView::class.java )
             intent.putExtra("URL", article.url)
             context.startActivity(intent)
@@ -42,6 +42,7 @@ class NewsAdapter(private val context: Context, private val articles: List<Artic
         var newsImage: ImageView = itemView.findViewById(R.id.newsImage)
         var newsTitle: TextView = itemView.findViewById(R.id.newsTitle)
         var newsAuthor: TextView = itemView.findViewById(R.id.newsAuthor)
+        //var newsDescription: TextView = itemView.findViewById(R.id.newsDescription)
 
     }
 }
